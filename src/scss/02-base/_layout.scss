@@ -1,0 +1,25 @@
+@import "../01-config/variables";
+
+html {
+    min-height: 100vh;
+    background-color: #eef4cd;
+}
+
+.l-container-1080 {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.l-container-full-screen {
+    width: 100%;
+}
+
+// .bg-green {
+//     background-color: #bfd8c8;
+// }
+
+@media only screen and (max-width: 1200px) {
+    .l-container-1080 {
+        max-width: 90%;
+    }
+}

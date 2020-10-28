@@ -1,0 +1,44 @@
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: black;
+    color: aliceblue;
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .nav-items-container {
+        display: flex;
+
+        .nav-item {
+            margin: 0 20px;
+        }
+    }
+}
+
+.nav-item.cart {
+    position: relative;
+
+    .cart-amount {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: -30px;
+        top: 50%;
+        background-color: rgb(250, 103, 103);
+        color: white;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        font-size: 0.7rem;
+        transform: translateY(-50%);
+
+        &.hide {
+            display: none;
+        }
+    }
+}
