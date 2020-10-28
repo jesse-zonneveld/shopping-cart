@@ -15,11 +15,7 @@ const App = () => {
         newArr.forEach((cartItem, index) => {
             if (cartItem[0].name === item.name) {
                 foundSameItem = true;
-                console.log(foundSameItem);
-                console.log(amount);
-                console.log(cartItem[1]);
                 const newAmount = +amount + +cartItem[1];
-                console.log(newAmount);
                 changeItemAmount(index, newAmount);
             }
         });
@@ -37,15 +33,11 @@ const App = () => {
 
     const changeItemAmount = (index, amount) => {
         const newArr = [...cartContents];
-        console.log(newArr);
-        console.log(index);
         newArr[index][1] = amount;
         setCartContents(newArr);
     };
 
-    useEffect(() => {
-        // console.log(cartContents);
-    }, [cartContents]);
+    useEffect(() => {}, [cartContents]);
 
     return (
         <BrowserRouter>
@@ -55,14 +47,14 @@ const App = () => {
                     <Switch>
                         <Route
                             exact
-                            path="/"
+                            path="/shopping-cart/"
                             render={(props) => (
                                 <Shop {...props} addToCart={addToCart} />
                             )}
                         />
                         <Route
                             exact
-                            path="/cart"
+                            path="/shopping-cart/cart"
                             render={(props) => (
                                 <Cart
                                     {...props}
