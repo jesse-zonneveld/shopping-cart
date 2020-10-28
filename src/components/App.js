@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Cart from "./Cart";
 import Nav from "./Nav";
-import Home from "./Home";
 import Shop from "./Shop";
 
 import "../scss/app.scss";
@@ -50,30 +49,31 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <div className="app">
+            <div className="app l-container-full-screen">
                 <Nav cartAmount={cartContents.length} />
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route
-                        exact
-                        path="/shop"
-                        render={(props) => (
-                            <Shop {...props} addToCart={addToCart} />
-                        )}
-                    />
-                    <Route
-                        exact
-                        path="/cart"
-                        render={(props) => (
-                            <Cart
-                                {...props}
-                                removeFromCart={removeFromCart}
-                                cartContents={cartContents}
-                                changeItemAmount={changeItemAmount}
-                            />
-                        )}
-                    />
-                </Switch>
+                <div className="l-container-1080">
+                    <Switch>
+                        <Route
+                            exact
+                            path="/"
+                            render={(props) => (
+                                <Shop {...props} addToCart={addToCart} />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/cart"
+                            render={(props) => (
+                                <Cart
+                                    {...props}
+                                    removeFromCart={removeFromCart}
+                                    cartContents={cartContents}
+                                    changeItemAmount={changeItemAmount}
+                                />
+                            )}
+                        />
+                    </Switch>
+                </div>
             </div>
         </BrowserRouter>
     );

@@ -11,6 +11,9 @@ const Item = (props) => {
     };
     return (
         <div className="item">
+            <div className="ribbon ribbon-top-left">
+                <span>${props.object.price}</span>
+            </div>
             <img src={props.object.imageUrl} />
             <div className="item-name">{props.object.name}</div>
             <div className="item-desc">{props.object.desc}</div>

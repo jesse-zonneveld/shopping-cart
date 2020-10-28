@@ -30,21 +30,24 @@ const Cart = (props) => {
     });
 
     return (
-        <div>
+        <div className="cart">
             {props.cartContents.length <= 0 ? (
-                "You have no items in your cart"
+                <div className="no-items-text">
+                    You have no items in your cart. Visit the shop page to add
+                    items.
+                </div>
             ) : (
                 <div className="cart-items-table">
                     <div className="cart-row top-row">
-                        <div className="cart-item-name">Item</div>
+                        <div className="item-title">Item</div>
                         <div className="quantity-title">Quantity</div>
-                        <div>Total</div>
+                        <div className="total-title">Total</div>
                     </div>
                     {props.cartContents.map((cartItem, index) => {
                         return (
                             <div className="cart-row" key={index}>
                                 <div className="cart-item-name-and-options">
-                                    <div className="cart-item-name">
+                                    <div className="item-title">
                                         {cartItem[0].name}
                                     </div>
                                     <i
@@ -79,6 +82,13 @@ const Cart = (props) => {
                                     ) : (
                                         `${cartItem[1]}  x  $${cartItem[0].price}`
                                     )}
+                                    {props.cartContents.length - 1 === index ? (
+                                        <div className="total phone-only">
+                                            ${total}
+                                        </div>
+                                    ) : (
+                                        ""
+                                    )}
                                 </div>
                                 <div className="sub-total">
                                     {`$${(
@@ -95,6 +105,14 @@ const Cart = (props) => {
                         );
                     })}
                 </div>
+            )}
+            {props.cartContents.length >= 1 ? (
+                <div className="checkout">
+                    <div className="checkout-text">Proceed to checkout: </div>
+                    <button className="btn-pay">Pay</button>
+                </div>
+            ) : (
+                ""
             )}
         </div>
     );

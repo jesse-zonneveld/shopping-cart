@@ -1,10 +1,26 @@
+@use 'variables';
+
 .item {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 200px;
     background-color: white;
     padding: 20px;
     margin: 20px;
+    box-shadow: $shadow;
+
+    .item-name {
+        text-align: center;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .item-desc {
+        line-height: 1.3rem;
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
 
     img {
         object-fit: cover;
@@ -16,12 +32,82 @@
         height: 30px;
 
         [type="number"] {
-            width: 40px;
+            width: 50px;
+            text-align: center;
             margin-right: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.377);
+
+            &:active,
+            &:focus {
+                outline: none;
+            }
         }
 
         [type="submit"] {
             width: 100%;
+            background-color: #e4cee0;
+            border: 2px solid rgba(0, 0, 0, 0.377);
+            transition: all 0.2s;
+
+            &:active,
+            &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                background-color: #d4abcd;
+                cursor: pointer;
+            }
         }
     }
+}
+
+.ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+}
+.ribbon::before,
+.ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    display: block;
+    border: 5px solid #84a6d6;
+}
+.ribbon span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: #84a6d6;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font: 700 20px/1 "Lato", sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.ribbon-top-left {
+    top: -10px;
+    left: -10px;
+}
+.ribbon-top-left::before,
+.ribbon-top-left::after {
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+.ribbon-top-left::before {
+    top: 0;
+    right: 0;
+}
+.ribbon-top-left::after {
+    bottom: 0;
+    left: 0;
+}
+.ribbon-top-left span {
+    right: -25px;
+    top: 30px;
+    transform: rotate(-45deg);
 }

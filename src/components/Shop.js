@@ -95,8 +95,8 @@ const Shop = (props) => {
     };
 
     return (
-        <div>
-            <h1>Browse through our selection of fantastic fruit</h1>
+        <div className="shop">
+            <h2>Browse through our selection of fantastic fruit</h2>
             <div className="items-container">
                 {Object.keys(items).map((key, index) => (
                     <Item
